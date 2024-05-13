@@ -178,11 +178,39 @@ function startGameFunction(window, document, THREE) {
         return Math.abs(ballX - paddleX) <= halfPaddleWidth + BALL_RADIUS;
     }
 
+    function handleWinningCondition() {
+        if (score.player1 === 3) {
+            stopGame();
+            renderWinningScreen('Player 1');
+        } else if (score.player2 === 3) {
+            stopGame();
+            renderWinningScreen('Player 2');
+        }
+    }
+
+    // Render winning message and an image 
+    function renderWinningScreen(winningPlayer) {
+        const mainContainer = document.getElementById('content');
+        const overlay = document.createElement('div');
+        overlay.className = 'overlay-fullscreen';
+        // Winning screen within the overlay
+        const winningScreen = document.createElement('div');
+        winningScreen.className = 'winning-screen';
+        // Winning message
+        const message = document.createElement('div');
+        message.className = 'winning-message';
+        message.textContent = `${winningPlayer} won!`;
+        winningScreen.appendChild(message);
+        overlay.appendChild(winningScreen);
+        mainContainer.appendChild(overlay);
+    }
+    
     function addScore(playerName) {
         addPoint(playerName);
         updateScoreBoard();
         stopBall();
         setTimeout(reset, 2000);
+        handleWinningCondition();
     }
 
     function updateScoreBoard() {
@@ -208,6 +236,13 @@ function startGameFunction(window, document, THREE) {
     function stopRender() {
         running = false;
     }
+
+    function stopGame() {
+        stopRender();
+        scene.clear();
+        renderer.renderLists.dispose();
+    }
+
 
     function render() {
         if (running) {
@@ -310,7 +345,7 @@ function startGameFunction(window, document, THREE) {
         // set the texture as a background for all planges
         function initBackgroundPlanes() {
             const textureLoader = new THREE.TextureLoader();
-            const starsTexture = textureLoader.load('stars.gif');
+            const starsTexture = textureLoader.load('/assets/img/stars.png');
         
             const backgroundMaterial = new THREE.MeshBasicMaterial({ map: starsTexture });
             backgroundMaterial.map.wrapS = THREE.RepeatWrapping;
