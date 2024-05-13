@@ -1,0 +1,29 @@
+body {
+  font-family: 'Work Sans', sans-serif;
+  --bs-primary: #1c3dca;
+  --bs-primary-rgb: 28,61,202;
+  --bs-info: #ffffff;
+  --bs-info-rgb: 255,255,255;
+  --bs-dark: #131416;
+  --bs-dark-rgb: 19,20,22;
+  --bs-body-color: var(--bs-white);
+  --bs-body-bg: var(--bs-dark);
+  width: 100vw;
+  height: 100vh;
+  padding: 50px;
+}
+
+.container {
+  height: 100%;
+}
+
+.text-badge {
+  padding: .1em .4em;
+  background: var(--bs-black);
+}
+
+.text-main {
+  padding: .1em .1em;
+  background: var(--bs-black);
+}
+
