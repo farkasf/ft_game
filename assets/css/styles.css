@@ -27,3 +27,33 @@ body {
   background: var(--bs-black);
 }
 
+.overlay-fullscreen {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: rgba(0, 0, 0, 0.8);
+}
+
+.winning-screen {
+  width: 50%;
+  height: 50%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-image: url("/assets/img/andromeda.gif");
+  background-size: cover;
+  border-radius: 10px;
+}
+
+.winning-message {
+  color: white;
+  font-size: 40px;
+  text-align: center;
+  padding: 20px;
+  text-shadow: 2px 2px 2px black, -2px -2px 2px black, -2px 2px 2px black, 2px -2px 2px black;
