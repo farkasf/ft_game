@@ -1,5 +1,6 @@
 console.clear();
 let gameMode = 1;
+let running;
 
 let keyState = {
     keyW: false,
@@ -34,7 +35,7 @@ function startGameFunction(window, document, THREE) {
 
 
         container, renderer, camera, mainLight,
-        scene, ball, paddle1, paddle2, field, running,
+        scene, ball, paddle1, paddle2, field,
         score = {
             player1: 0,
             player2: 0
@@ -290,7 +291,7 @@ function startGameFunction(window, document, THREE) {
         //initialize the scene background and ball
         function initScene() {
             const textureLoader = new THREE.TextureLoader();
-            const starsTexture = textureLoader.load('stars.gif');
+            const starsTexture = textureLoader.load('/assets/img/stars.png');
         
             container = document.getElementById('container');
         

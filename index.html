@@ -43,6 +43,7 @@
         	console.log(e.keyCode)
 			if (e.keyCode !== 81) return
 			if (currentPage === "game") {
+				running = false
 				loadPage("home")
 			} else if (currentPage === "tournament") {
 				loadPage("home")
