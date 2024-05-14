@@ -202,6 +202,12 @@ function startGameFunction(window, document, THREE) {
         message.className = 'winning-message';
         message.textContent = `${winningPlayer} won!`;
         winningScreen.appendChild(message);
+
+		const quitMessage = document.createElement('div');
+		quitMessage.className = 'text-shadow';
+		quitMessage.textContent = "Press 'q' to quit";
+		winningScreen.appendChild(quitMessage);
+
         overlay.appendChild(winningScreen);
         mainContainer.appendChild(overlay);
     }

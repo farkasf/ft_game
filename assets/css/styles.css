@@ -57,3 +57,8 @@ body {
   text-align: center;
   padding: 20px;
   text-shadow: 2px 2px 2px black, -2px -2px 2px black, -2px 2px 2px black, 2px -2px 2px black;
+}
+
+.text-shadow {
+	text-shadow: 2px 2px 4px black, -2px -2px 4px #000000, -2px 2px 4px black, 2px -2px 4px black;
+}
