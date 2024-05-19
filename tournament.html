@@ -1,54 +1,29 @@
-<section class="d-flex flex-column" style="width: 100%;height: 100%;background:black;margin: 0;" id="content">
-    <div class="d-flex flex-row justify-content-between" style="padding: 20px;height: auto;">
-        <div>
-            <button class="btn btn-sm fs-5" type="button" style="padding: 5px;background: #000000;">en</button>
-            <button class="btn btn-sm fs-5" type="button" style="margin: 0 15px;padding: 5px;background: #000000;">cs</button>
-            <button class="btn btn-sm fs-5" type="button" style="padding: 5px;background: #000000;">it</button>
-        </div>
-        <div>
-            <button class="btn btn-light fs-5" type="button" style="padding: 5px;">logout</button>
-        </div>
-    </div>
-    <div style="padding: 3%;">
-        <h4 class="display-3 fw-bold text-main" style="margin: 0;margin-bottom: 0px;margin-left: 0;">start by adding users</h4>
-        <div class="d-flex" style="background: rgb(0,0,0);margin-top: 3%;">
-            <div class="form-check fs-3">
-                <input class="form-check-input" type="radio" data-bss-hover-animate="tada" id="fourP" name="play_game" checked="">
-                <label class="form-check-label" for="formCheck-2">4 players&nbsp;</label>
-            </div>
-            <div class="form-check fs-3" style="margin-left: 15px;">
-                <input class="form-check-input" type="radio" data-bss-hover-animate="tada" id="eightP" name="play_game">
-                <label class="form-check-label" for="formCheck-1">8 players</label>
-            </div>
-        </div>
-    </div>
-    <div class="d-flex flex-row justify-content-lg-center align-items-lg-center" style="margin: 10px">
-        <div id="P4Table" class="d-flex d-lg-flex flex-column justify-content-between align-items-center justify-content-lg-center align-items-lg-center" style="height: 50%;width: 50%;">
-            <input class="form-control-lg readonly-input" type="text" style="color: var(--bs-info);background: rgb(0,0,0);border-style: none;border-top-style: solid;border-top-color: var(--bs-info);border-right-style: solid;border-right-color: var(--bs-info);border-bottom-style: ridge;border-bottom-color: var(--bs-info);border-left-style: solid;border-left-color: var(--bs-info);margin: 1%;" placeholder="username" readonly>
-            <input class="form-control-lg" type="text" style="color: var(--bs-info);background: rgb(0,0,0);border-style: none;border-top-style: solid;border-top-color: var(--bs-info);border-right-style: solid;border-right-color: var(--bs-info);border-bottom-style: ridge;border-bottom-color: var(--bs-info);border-left-style: solid;border-left-color: var(--bs-info);margin: 1%;" placeholder="alias 2">
-            <input class="form-control-lg" type="text" style="color: var(--bs-info);background: rgb(0,0,0);border-style: none;border-top-style: solid;border-top-color: var(--bs-info);border-right-style: solid;border-right-color: var (--bs-info);border-bottom-style: ridge;border-bottom-color: var(--bs-info);border-left-style: solid;border-left-color: var(--bs-info);margin: 1%;" placeholder="alias 3">
-            <input class="form-control-lg" type="text" style="color: var(--bs-info);background: rgb(0,0,0);border-style: none;border-top-style: solid;border-top-color: var(--bs-info);border-right-style: solid;border-right-color: var(--bs-info);border-bottom-style: ridge;border-bottom-color: var(--bs-info);border-left-style: solid;border-left-color: var(--bs-info);margin: 1%;" placeholder="alias 4">
-        </div>
-        <button class="btn btn-light fs-3 border-black" type="button" style="padding: 20px;margin-top: 40px;">begin</button>
-        <div id="P8Table" class="d-flex d-lg-flex flex-column justify-content-between align-items-center justify-content-lg-center align-items-lg-center" style="height: 50%;width: 50%;">
-            <input class="form-control-lg" type="text" style="color: var(--bs-info);background: rgb(0,0,0);border-style: none;border-top-style: solid;border-top-color: var(--bs-info);border-right-style: solid;border-right-color: var(--bs-info);border-bottom-style: ridge;border-bottom-color: var(--bs-info);border-left-style: solid;border-left-color: var(--bs-info);margin: 1%;" placeholder="alias 5">
-            <input class="form-control-lg" type="text" style="color: var(--bs-info);background: rgb(0,0,0);border-style: none;border-top-style: solid;border-top-color: var(--bs-info);border-right-style: solid;border-right-color: var(--bs-info);border-bottom-style: ridge;border-bottom-color: var(--bs-info);border-left-style: solid;border-left-color: var(--bs-info);margin: 1%;" placeholder="alias 6">
-            <input class="form-control-lg" type="text" style="color: var(--bs-info);background: rgb(0,0,0);border-style: none;border-top-style: solid;border-top-color: var(--bs-info);border-right-style: solid;border-right-color: var(--bs-info);border-bottom-style: ridge;border-bottom-color: var(--bs-info);border-left-style: solid;border-left-color: var(--bs-info);margin: 1%;" placeholder="alias 7">
-            <input class="form-control-lg" type="text" style="color: var(--bs-info);background: rgb(0,0,0);border-style: none;border-top-style: solid;border-top-color: var(--bs-info);border-right-style: solid;border-right-color: var(--bs-info);border-bottom-style: ridge;border-bottom-color: var(--bs-info);border-left-style: solid;border-left-color: var(--bs-info);margin: 1%;" placeholder="alias 8">
-        </div>
-    </div>
-	<div class="m-1">
-		<p class="text-white fs-5 text-center">Press 'q' to quit</p>
+<div style="padding: 3%;">
+	<h4 class="display-3 fw-bold text-main" style="margin: 0;margin-bottom: 0px;margin-left: 0;">start by adding users</h4>
+	<div class="d-flex" style="background: rgb(0,0,0);margin-top: 3%;margin-bottom: -3%;">
+		<div class="form-check fs-3">
+			<input class="form-check-input" type="radio" data-bss-hover-animate="tada" id="fourP" name="play_game" checked="">
+			<label class="form-check-label" for="formCheck-2">4 players&nbsp;</label>
+		</div>
+		<div class="form-check fs-3" style="margin-left: 15px;">
+			<input class="form-check-input" type="radio" data-bss-hover-animate="tada" id="eightP" name="play_game">
+			<label class="form-check-label" for="formCheck-1">8 players</label>
+		</div>
 	</div>
-</section>
-
-<style>
-    .readonly-input {
-        background-color: white !important;
-        color: var(--bs-info);
-        border-top-color: var(--bs-info);
-        border-right-color: var(--bs-info);
-        border-bottom-color: var(--bs-info);
-        border-left-color: var(--bs-info);
-    }
-</style>
+</div>
+<div class="d-flex flex-row justify-content-lg-center align-items-lg-center" style="margin: 10px">
+	<div id="P4Table" class="d-flex d-lg-flex flex-column justify-content-between align-items-center justify-content-lg-center align-items-lg-center" style="height: 50%;width: 50%;">
+		<input id="alias1" class="form-control-lg readonly-input" type="text" style="color: var(--bs-info);background: rgb(0,0,0);border-style: none;border-top-style: solid;border-top-color: var(--bs-info);border-right-style: solid;border-right-color: var(--bs-info);border-bottom-style: ridge;border-bottom-color: var(--bs-info);border-left-style: solid;border-left-color: var(--bs-info);margin: 1%;" placeholder="user" readonly>
+		<input id="alias2" class="form-control-lg" type="text" style="color: var(--bs-info);background: rgb(0,0,0);border-style: none;border-top-style: solid;border-top-color: var(--bs-info);border-right-style: solid;border-right-color: var(--bs-info);border-bottom-style: ridge;border-bottom-color: var(--bs-info);border-left-style: solid;border-left-color: var(--bs-info);margin: 1%;" placeholder="alias 2">
+		<input id="alias3" class="form-control-lg" type="text" style="color: var(--bs-info);background: rgb(0,0,0);border-style: none;border-top-style: solid;border-top-color: var(--bs-info);border-right-style: solid;border-right-color: var (--bs-info);border-bottom-style: ridge;border-bottom-color: var(--bs-info);border-left-style: solid;border-left-color: var(--bs-info);margin: 1%;" placeholder="alias 3">
+		<input id="alias4" class="form-control-lg" type="text" style="color: var(--bs-info);background: rgb(0,0,0);border-style: none;border-top-style: solid;border-top-color: var(--bs-info);border-right-style: solid;border-right-color: var(--bs-info);border-bottom-style: ridge;border-bottom-color: var(--bs-info);border-left-style: solid;border-left-color: var(--bs-info);margin: 1%;" placeholder="alias 4">
+	</div>
+	<button class="btn btn-light fs-3 border-black" type="button" style="padding: 20px;margin-top: 40px;" onclick="getTourTable()">begin</button>
+	<div id="P8Table" class="d-flex d-lg-flex flex-column justify-content-between align-items-center justify-content-lg-center align-items-lg-center" style="height: 50%;width: 50%;">
+		<input id="alias5" class="form-control-lg" type="text" style="color: var(--bs-info);background: rgb(0,0,0);border-style: none;border-top-style: solid;border-top-color: var(--bs-info);border-right-style: solid;border-right-color: var(--bs-info);border-bottom-style: ridge;border-bottom-color: var(--bs-info);border-left-style: solid;border-left-color: var(--bs-info);margin: 1%;" placeholder="alias 5">
+		<input id="alias6" class="form-control-lg" type="text" style="color: var(--bs-info);background: rgb(0,0,0);border-style: none;border-top-style: solid;border-top-color: var(--bs-info);border-right-style: solid;border-right-color: var(--bs-info);border-bottom-style: ridge;border-bottom-color: var(--bs-info);border-left-style: solid;border-left-color: var(--bs-info);margin: 1%;" placeholder="alias 6">
+		<input id="alias7" class="form-control-lg" type="text" style="color: var(--bs-info);background: rgb(0,0,0);border-style: none;border-top-style: solid;border-top-color: var(--bs-info);border-right-style: solid;border-right-color: var(--bs-info);border-bottom-style: ridge;border-bottom-color: var(--bs-info);border-left-style: solid;border-left-color: var(--bs-info);margin: 1%;" placeholder="alias 7">
+		<input id="alias8" class="form-control-lg" type="text" style="color: var(--bs-info);background: rgb(0,0,0);border-style: none;border-top-style: solid;border-top-color: var(--bs-info);border-right-style: solid;border-right-color: var(--bs-info);border-bottom-style: ridge;border-bottom-color: var(--bs-info);border-left-style: solid;border-left-color: var(--bs-info);margin: 1%;" placeholder="alias 8">
+	</div>
+</div>
+<p id="tourBottom" class="text-white fs-5 text-center">Press Enter ↵ to quit</p>

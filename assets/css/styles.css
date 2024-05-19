@@ -62,3 +62,20 @@ body {
 .text-shadow {
 	text-shadow: 2px 2px 4px black, -2px -2px 4px #000000, -2px 2px 4px black, 2px -2px 4px black;
 }
+
+img {
+	max-width: 100%;
+}
+
+.readonly-input {
+	background-color: white !important;
+	color: var(--bs-info);
+	border-top-color: var(--bs-info);
+	border-right-color: var(--bs-info);
+	border-bottom-color: var(--bs-info);
+	border-left-color: var(--bs-info);
+}
+
+#tournament-results-wrapper>* {
+	flex: 1 1 auto;
+}
