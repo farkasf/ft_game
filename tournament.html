@@ -1,29 +1,31 @@
-<div style="padding: 3%;">
-	<h4 class="display-3 fw-bold text-main translate" style="margin: 0;margin-bottom: 0px;margin-left: 0;" data-en="start by adding users" data-cs="začni přidáním hráčů" data-de="beginne mit dem Hinzufügen eines Spielers"></h4>
-	<div class="d-flex" style="background: rgb(0,0,0);margin-top: 3%;margin-bottom: -3%;">
-		<div class="form-check fs-3">
-			<input class="form-check-input" type="radio" data-bss-hover-animate="tada" id="fourP" name="play_game" checked="">
-			<label class="form-check-label translate" for="formCheck-2" data-en="4 players" data-cs="4 hráči" data-de="4 Spieler"></label>
+<div class="container d-flex flex-column justify-content-center align-items-between">
+	<div style="padding: 3%;">
+		<h4 class="display-3 fw-bold text-main translate" style="margin: 0;margin-bottom: 1%;margin-left: 0;" data-en="start by adding users" data-cs="začni přidáním hráčů" data-de="beginne mit dem Hinzufügen eines Spielers"></h4>
+		<div class="d-flex" style="background: rgb(0,0,0);margin-top: 3%;">
+			<div class="form-check fs-3">
+				<input class="form-check-input" type="radio" data-bss-hover-animate="tada" id="fourP" name="play_game" checked="">
+				<label class="form-check-label translate" for="formCheck-2" data-en="4 players" data-cs="4 hráči" data-de="4 Spieler"></label>
+			</div>
+			<div class="form-check fs-3" style="margin-left: 4%;">
+				<input class="form-check-input" type="radio" data-bss-hover-animate="tada" id="eightP" name="play_game">
+				<label class="form-check-label translate" for="formCheck-1" data-en="8 players" data-cs="8 hráčů" data-de="8 Spieler"></label>
+			</div>
 		</div>
-		<div class="form-check fs-3" style="margin-left: 4%;">
-			<input class="form-check-input" type="radio" data-bss-hover-animate="tada" id="eightP" name="play_game">
-			<label class="form-check-label translate" for="formCheck-1" data-en="8 players" data-cs="8 hráčů" data-de="8 Spieler"></label>
+	</div>
+	<div class="d-flex flex-row justify-content-lg-center align-items-lg-center" style="margin: 10px">
+		<div id="P4Table" class="d-flex d-lg-flex flex-column justify-content-between align-items-center justify-content-lg-center align-items-lg-center" style="height: 50%;width: 50%;">
+			<input id="alias1" class="form-control-lg readonly-input" type="text" style="color: var(--bs-info);background: rgb(0,0,0);border-style: none;border-top-style: solid;border-top-color: var(--bs-info);border-right-style: solid;border-right-color: var(--bs-info);border-bottom-style: ridge;border-bottom-color: var(--bs-info);border-left-style: solid;border-left-color: var(--bs-info);margin: 1%;" placeholder="user" readonly>
+			<input id="alias2" class="form-control-lg" type="text" style="color: var(--bs-info);background: rgb(0,0,0);border-style: none;border-top-style: solid;border-top-color: var(--bs-info);border-right-style: solid;border-right-color: var(--bs-info);border-bottom-style: ridge;border-bottom-color: var(--bs-info);border-left-style: solid;border-left-color: var(--bs-info);margin: 1%;" placeholder="alias 2">
+			<input id="alias3" class="form-control-lg" type="text" style="color: var(--bs-info);background: rgb(0,0,0);border-style: none;border-top-style: solid;border-top-color: var(--bs-info);border-right-style: solid;border-right-color: var (--bs-info);border-bottom-style: ridge;border-bottom-color: var(--bs-info);border-left-style: solid;border-left-color: var(--bs-info);margin: 1%;" placeholder="alias 3">
+			<input id="alias4" class="form-control-lg" type="text" style="color: var(--bs-info);background: rgb(0,0,0);border-style: none;border-top-style: solid;border-top-color: var(--bs-info);border-right-style: solid;border-right-color: var(--bs-info);border-bottom-style: ridge;border-bottom-color: var(--bs-info);border-left-style: solid;border-left-color: var(--bs-info);margin: 1%;" placeholder="alias 4">
+		</div>
+		<button class="btn btn-light fs-3 border-black translate" type="button" style="padding: 20px;margin-top: 40px;" onclick="getTourTable()" data-en="begin" data-cs="začít" data-de="beginnen"></button>
+		<div id="P8Table" class="d-flex d-lg-flex flex-column justify-content-between align-items-center justify-content-lg-center align-items-lg-center" style="height: 50%;width: 50%;">
+			<input id="alias5" class="form-control-lg" type="text" style="color: var(--bs-info);background: rgb(0,0,0);border-style: none;border-top-style: solid;border-top-color: var(--bs-info);border-right-style: solid;border-right-color: var(--bs-info);border-bottom-style: ridge;border-bottom-color: var(--bs-info);border-left-style: solid;border-left-color: var(--bs-info);margin: 1%;" placeholder="alias 5">
+			<input id="alias6" class="form-control-lg" type="text" style="color: var(--bs-info);background: rgb(0,0,0);border-style: none;border-top-style: solid;border-top-color: var(--bs-info);border-right-style: solid;border-right-color: var(--bs-info);border-bottom-style: ridge;border-bottom-color: var(--bs-info);border-left-style: solid;border-left-color: var(--bs-info);margin: 1%;" placeholder="alias 6">
+			<input id="alias7" class="form-control-lg" type="text" style="color: var(--bs-info);background: rgb(0,0,0);border-style: none;border-top-style: solid;border-top-color: var(--bs-info);border-right-style: solid;border-right-color: var(--bs-info);border-bottom-style: ridge;border-bottom-color: var(--bs-info);border-left-style: solid;border-left-color: var(--bs-info);margin: 1%;" placeholder="alias 7">
+			<input id="alias8" class="form-control-lg" type="text" style="color: var(--bs-info);background: rgb(0,0,0);border-style: none;border-top-style: solid;border-top-color: var(--bs-info);border-right-style: solid;border-right-color: var(--bs-info);border-bottom-style: ridge;border-bottom-color: var(--bs-info);border-left-style: solid;border-left-color: var(--bs-info);margin: 1%;" placeholder="alias 8">
 		</div>
 	</div>
+	<p id="tourBottom" class="text-white fs-5 text-center" style="margin-top: 1%;"></p>
 </div>
-<div class="d-flex flex-row justify-content-lg-center align-items-lg-center" style="margin: 10px">
-	<div id="P4Table" class="d-flex d-lg-flex flex-column justify-content-between align-items-center justify-content-lg-center align-items-lg-center" style="height: 50%;width: 50%;">
-		<input id="alias1" class="form-control-lg readonly-input" type="text" style="color: var(--bs-info);background: rgb(0,0,0);border-style: none;border-top-style: solid;border-top-color: var(--bs-info);border-right-style: solid;border-right-color: var(--bs-info);border-bottom-style: ridge;border-bottom-color: var(--bs-info);border-left-style: solid;border-left-color: var(--bs-info);margin: 1%;" placeholder="user" readonly>
-		<input id="alias2" class="form-control-lg" type="text" style="color: var(--bs-info);background: rgb(0,0,0);border-style: none;border-top-style: solid;border-top-color: var(--bs-info);border-right-style: solid;border-right-color: var(--bs-info);border-bottom-style: ridge;border-bottom-color: var(--bs-info);border-left-style: solid;border-left-color: var(--bs-info);margin: 1%;" placeholder="alias 2">
-		<input id="alias3" class="form-control-lg" type="text" style="color: var(--bs-info);background: rgb(0,0,0);border-style: none;border-top-style: solid;border-top-color: var(--bs-info);border-right-style: solid;border-right-color: var (--bs-info);border-bottom-style: ridge;border-bottom-color: var(--bs-info);border-left-style: solid;border-left-color: var(--bs-info);margin: 1%;" placeholder="alias 3">
-		<input id="alias4" class="form-control-lg" type="text" style="color: var(--bs-info);background: rgb(0,0,0);border-style: none;border-top-style: solid;border-top-color: var(--bs-info);border-right-style: solid;border-right-color: var(--bs-info);border-bottom-style: ridge;border-bottom-color: var(--bs-info);border-left-style: solid;border-left-color: var(--bs-info);margin: 1%;" placeholder="alias 4">
-	</div>
-	<button class="btn btn-light fs-3 border-black translate" type="button" style="padding: 20px;margin-top: 40px;" onclick="getTourTable()" data-en="begin" data-cs="začít" data-de="beginnen"></button>
-	<div id="P8Table" class="d-flex d-lg-flex flex-column justify-content-between align-items-center justify-content-lg-center align-items-lg-center" style="height: 50%;width: 50%;">
-		<input id="alias5" class="form-control-lg" type="text" style="color: var(--bs-info);background: rgb(0,0,0);border-style: none;border-top-style: solid;border-top-color: var(--bs-info);border-right-style: solid;border-right-color: var(--bs-info);border-bottom-style: ridge;border-bottom-color: var(--bs-info);border-left-style: solid;border-left-color: var(--bs-info);margin: 1%;" placeholder="alias 5">
-		<input id="alias6" class="form-control-lg" type="text" style="color: var(--bs-info);background: rgb(0,0,0);border-style: none;border-top-style: solid;border-top-color: var(--bs-info);border-right-style: solid;border-right-color: var(--bs-info);border-bottom-style: ridge;border-bottom-color: var(--bs-info);border-left-style: solid;border-left-color: var(--bs-info);margin: 1%;" placeholder="alias 6">
-		<input id="alias7" class="form-control-lg" type="text" style="color: var(--bs-info);background: rgb(0,0,0);border-style: none;border-top-style: solid;border-top-color: var(--bs-info);border-right-style: solid;border-right-color: var(--bs-info);border-bottom-style: ridge;border-bottom-color: var(--bs-info);border-left-style: solid;border-left-color: var(--bs-info);margin: 1%;" placeholder="alias 7">
-		<input id="alias8" class="form-control-lg" type="text" style="color: var(--bs-info);background: rgb(0,0,0);border-style: none;border-top-style: solid;border-top-color: var(--bs-info);border-right-style: solid;border-right-color: var(--bs-info);border-bottom-style: ridge;border-bottom-color: var(--bs-info);border-left-style: solid;border-left-color: var(--bs-info);margin: 1%;" placeholder="alias 8">
-	</div>
-</div>
-<p id="tourBottom" class="text-white fs-5 text-center"></p>
