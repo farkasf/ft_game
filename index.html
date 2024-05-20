@@ -67,10 +67,11 @@
 		})
 
 		window.addEventListener('popstate', function (event) {
+			//console.log(event)
 			if (event.state && event.state.page) {
-				loadPage(event.state.page);
+				loadPage(event.state.page, true);
 			} else {
-				loadPage('index');
+				loadPage('home', true);
 			}
 		})
 	</script>

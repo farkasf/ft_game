@@ -1,14 +1,17 @@
-let currentPage;
+let currentPage = "home";
 let userName = "ffarkas";
 
 //TODO: Handle error – missing page
-function loadPage(pageName) {
+function loadPage(pageName, navArrows = false) {
 	//return promise to be able to wait for the page to load
 	return fetch(pageName + ".html")
 		.then((response) => response.text())
 		.then((html) => {
+			
 			document.querySelector("main").innerHTML = html;
-			history.pushState({ page: pageName }, '', pageName);
+			if (pageName !== currentPage && !navArrows) {
+				history.pushState({ page: pageName }, '', pageName);
+			}
 
 			currentPage = pageName;
 
