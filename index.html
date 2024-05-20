@@ -15,6 +15,7 @@
 	<script data-require="three.js@0.128.0" data-semver="0.128.0" src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
 	<script src="assets/bootstrap/js/bootstrap.min.js"></script>
 	<script src="utils.js"></script>
+	<script src="localization.js"></script>
 	<script src="pong_game.js"></script>
 	<script src="tournament.js"></script>
 
@@ -26,13 +27,12 @@
 		style="background: black url('assets/img/background.gif') center / 100% 101% no-repeat ;">
 		<header class="d-flex flex-row justify-content-between">
 			<div>
-				<button class="btn btn-sm fs-5" type="button" style="padding: 5px;background: #000000;">en</button>
-				<button class="btn btn-sm fs-5" type="button"
-					style="margin: 0 15px;padding: 5px;background: #000000;">cs</button>
-				<button class="btn btn-sm fs-5" type="button" style="padding: 5px;background: #000000;">it</button>
+				<button id="en" class="btn btn-sm fs-5 langswitch" type="button" style="padding: 5px;background: #000000;" onclick="changeLang('en')">en</button>
+				<button id="cs" class="btn btn-sm fs-5 langswitch" type="button" style="margin: 0 15px;padding: 5px;background: #000000;" onclick="changeLang('cs')">cs</button>
+				<button id="de" class="btn btn-sm fs-5 langswitch" type="button" style="padding: 5px;background: #000000;" onclick="changeLang('de')">de</button>
 			</div>
 			<div id="logout_button" style="display: none;">
-				<button class="btn btn-light fs-5" type="button" style="padding: 5px;">logout</button>
+				<button class="btn btn-light fs-5 translate" type="button" style="padding: 5px;" data-en="logout" data-cs="odhlásit se" data-de="abmelden"></button>
 			</div>
 		</header>
 		<main class="d-flex flex-column justify-content-between flex-grow-1">
@@ -41,14 +41,13 @@
 	</div>
 
 	<script>
+		
 		// Load the page that should be loaded first, self-executing function thus runs on every refresh
 		(function getPageToLoad() {
 			const path = window.location.pathname
-
-			// Remove the leading slash
 			const partAfterSlash = path.startsWith('/') ? path.slice(1) : path
-
 			// console.log(partAfterSlash)
+
 			if (partAfterSlash) {
 				loadPage(partAfterSlash)
 			} else {
@@ -57,7 +56,7 @@
 		})()
 
 		document.addEventListener("keydown", (e) => {
-			if (e.keyCode !== 13) return
+			if (e.keyCode !== 27) return
 			if (currentPage === "game") {
 				running = false;
 				loadPage("game_picker");

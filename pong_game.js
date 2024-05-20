@@ -216,20 +216,20 @@ function startGameFunction(window, document, THREE) {
     // Winning message
     const message = document.createElement("div");
     message.className = "winning-message";
-    message.textContent = `${winningPlayer} has won!`;
+    message.textContent = `${winningPlayer} ${translate('has_won')}!`;
     winningScreen.appendChild(message);
 
 	const quitMessage = document.createElement("div");
 	quitMessage.className = "text-shadow";
 
 	if (gameMode !== 3) {
-		quitMessage.textContent = "Returning...";
+		quitMessage.textContent = `${translate('ret')}...`;
 	} else {
 		if (gameMode === 3) {
 			if (aliases.length === 0) {
-			  quitMessage.textContent = "Tournament has ended...";
+			  quitMessage.textContent = `${translate('endTour')}...`;
 			} else {
-			  quitMessage.textContent = "Next match will begin soon...";
+			  quitMessage.textContent = `${translate('nextMatchTour')}...`;
 			}
 	}}
 	winningScreen.appendChild(quitMessage);
@@ -242,10 +242,10 @@ function startGameFunction(window, document, THREE) {
 			addWinner(winningPlayer);
 			getTournamentTableData(document.querySelector("#player1name").innerHTML, document.querySelector("#player2name").innerHTML, score.player1, score.player2);
 			if (aliases.length > 1) {
-			getPlayers();
-			loadPage("game");
+				getPlayers();
+				loadPage("game");
 			} else {
-			loadPage("tournament_results");
+				loadPage("tournament_results");
 			}
 		} else {
 			loadPage("game_picker");

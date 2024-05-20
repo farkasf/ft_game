@@ -3,7 +3,7 @@ let selectedTourRadio, aliases = [], playerGroup = [], tournamentResults = [];
 function getTourTable() {
 	aliases = [];
 	let duplicate = false;
-	aliases.push("username");
+	aliases.push(userName);
 	for (let i = 2; i <= selectedTourRadio; i++) {
 		let alias = document.getElementById('alias' + i).value.trim();
 		if (alias !== "") {
@@ -15,9 +15,9 @@ function getTourTable() {
 		}
 	}
 	if (duplicate) {
-		document.querySelector("#tourBottom").innerHTML = "Duplicate player names found.";
+		document.querySelector("#tourBottom").innerHTML = translate('duplicates');
 	} else if (aliases.length !== selectedTourRadio) {
-		document.querySelector("#tourBottom").innerHTML = selectedTourRadio + " player names required.";
+		document.querySelector("#tourBottom").innerHTML = translate('blank');
 	} else {
 		createMatches();
 		// console.log(aliases);
@@ -58,19 +58,8 @@ function getTournamentTableData(name1, name2, score1, score2) {
 	tournamentResults.push(match);
 }
 
-// tournamentResults = [
-//     { player1: "Adam", player2: "Filip", result1: 25, result2: 2 },
-//     { player1: "Filip", player2: "Adam", result1: 25, result2: 2 },
-//     { player1: "Marie", player2: "Jenůfa", result1: 3, result2: 4 },
-// 	{ player1: "Adam", player2: "Filip", result1: 25, result2: 2 },
-//     { player1: "Filip", player2: "Adam", result1: 25, result2: 2 },
-//     { player1: "Marie", player2: "Jenůfa", result1: 3, result2: 4 },
-// 	{ player1: "Adam", player2: "Filip", result1: 25, result2: 2 }
-// ];
-
 function displayTournamentResults() {
 	// console.log("showing results")
-	// get parent element by id
 	
 	let resultsElement = document.getElementById("tournamentResults")
 	let html = ""
@@ -79,12 +68,10 @@ function displayTournamentResults() {
 		const playerNames = el.result1 > el.result2 ? `<u><b>${el.player1}</b></u> vs ${el.player2}` : `${el.player1} vs <u><b>${el.player2}</b></u>`
 		//check if the element is last to highlight final Match
 		const isLast = id + 1 == array.length
-		//add row to final html
 		html += `<div class="${isLast ? "mt-4" : "mt-3"} me-5 pe-5">
-				<h3 class="${isLast ? "fw-bold" : ""}">${isLast ? "Final Match" : "Match"} ${isLast ? "" : id + 1}</h3>
-				<div>${playerNames} (${el.result1}:${el.result2})</div>
+					<h3 class="${isLast ? "fw-bold" : ""}">${isLast ? translate('f_match') : translate('match')} ${isLast ? "" : id + 1}</h3>
+					<div>${playerNames} (${el.result1}:${el.result2})</div>
 				</div>`	
 	})
-	//print out the concatenated html to the parent element
 	resultsElement.innerHTML = html
 }

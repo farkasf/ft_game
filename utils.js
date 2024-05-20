@@ -1,17 +1,17 @@
 let currentPage = "home";
 let userName = "ffarkas";
 
-//TODO: Handle error – missing page
 function loadPage(pageName, navArrows = false) {
 	//return promise to be able to wait for the page to load
 	return fetch(pageName + ".html")
 		.then((response) => response.text())
 		.then((html) => {
-			
+
 			document.querySelector("main").innerHTML = html;
 			if (pageName !== currentPage && !navArrows) {
 				history.pushState({ page: pageName }, '', pageName);
 			}
+			translatePage();
 
 			currentPage = pageName;
 
@@ -26,27 +26,33 @@ function loadPage(pageName, navArrows = false) {
 			switch (pageName) {
 				case "game_picker":
 					addChoiceListeners();
-					document.getElementById('welcomeMessage').innerHTML = `greetings,<br>${userName}`;
+					document.getElementById('welcomeMessage').innerHTML = `${translate('greetings')},<br>${userName}`;
 					break
 				case "tournament":
 					changeTableListener();
+					document.querySelector("#tourBottom").innerHTML = translate('quit');
 					document.getElementById('alias1').placeholder = `${userName}`
 					break
 				case "tournament_results":
 					displayTournamentResults();
+					document.querySelector("#tourBottom").innerHTML = translate('quit');
 					break
 				case "game":
+					// console.log(gameMode);
+					document.querySelector("#quitGame").innerHTML = translate('quit_g');
 					if (gameMode === 1) {
 						document.querySelector("#player1name").innerHTML = userName;
 						document.querySelector("#player2name").innerHTML = "AI";
-						document.querySelector("#controls").innerHTML = `${userName}: arrows`;
+						document.querySelector("#controls").innerHTML = `${userName}: ${translate('arrows')}`;
 					} else if (gameMode === 2) {
 						document.querySelector("#player1name").innerHTML = userName;
-						document.querySelector("#player2name").innerHTML = "Player 2";
-						document.querySelector("#controls").innerHTML = `${userName}: WASD<br>Player 2: arrows`;
+						document.querySelector("#player2name").innerHTML = translate('p2');
+						// console.log(translate('p2'));
+						document.querySelector("#controls").innerHTML = `${userName}: WASD<br>${translate('p2')}: ${translate('arrows')}`;
 					} else if (gameMode === 3) {
 						document.querySelector("#player1name").innerHTML = playerGroup[0];
 						document.querySelector("#player2name").innerHTML = playerGroup[1];
+						document.querySelector("#controls").innerHTML = `${playerGroup[0]}: WASD<br>${playerGroup[1]}: ${translate('arrows')}`;
 						// console.log("set usernames for the tournament")
 					}
 					break
@@ -64,7 +70,7 @@ function manageMode() {
 }
 
 function updateImage(imageSrc, text) {
-	document.getElementById('image-container').innerHTML = `<img style="max-width: 100%;max-height: 100%;width: 50%;" src="assets/img/${imageSrc}"><p class="fs-4" style="margin-top: 5%;">${text}</p>`;
+	document.getElementById('image-container').innerHTML = `<img style="max-width: 100%;max-height: 100%;width: 50%;" src="assets/img/${imageSrc}"><p class="fs-4" style="margin-top: 5%;">${translate(text)}</p>`;
 }
 
 function addChoiceListeners() {
@@ -93,12 +99,8 @@ function addChoiceListeners() {
 		}
 	})
 
-	if (vsAIChoice.checked) {
-		gameMode = 1;
-	} else if (vsPlayerChoice.checked) {
+	if (vsPlayerChoice.checked) {
 		gameMode = 2;
-	} else if (tournamentChoice.checked) {
-		gamemode = 3;
 	}
 }
 

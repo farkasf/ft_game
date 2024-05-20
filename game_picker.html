@@ -1,16 +1,16 @@
 <div class="container d-flex flex-row justify-content-end align-items-start justify-content-md-start" style="padding: 2%;">
 	<div style="width: 50%;">
 		<div class="justify-content-center align-items-end justify-content-md-center align-items-md-center" style="width: 80%;height: 43%;margin-top: 5%;margin-bottom: 5%;">
-			<h1 id="welcomeMessage" class="display-3 fw-bold text-main" style="margin: 0;margin-bottom: 0px;margin-left: 0;">greetings,<br>user</h1>
-			<h1 class="display-6 d-xl-flex justify-content-xl-start" style="margin-top: 80px;background: #000000;">start a game</h1>
+			<h1 id="welcomeMessage" class="display-3 fw-bold text-main" style="margin: 0;margin-bottom: 0px;margin-left: 0;"></h1>
+			<h1 class="display-6 d-xl-flex justify-content-xl-start translate" style="margin-top: 80px;background: #000000;" data-en="pick a game" data-cs="vyber hru" data-de="wähle ein Spiel"></h1>
 		</div>
 		<div class="d-flex" style="background: rgb(0,0,0);">
-			<div class="form-check fs-3"><input class="form-check-input" type="radio" data-bss-hover-animate="tada" id="vsPlayerChoice" name="play_game" checked="" onclick="updateImage('1v1.png', 'play against another player')"><label class="form-check-label" for="formCheck-2">1 vs 1&nbsp;</label></div>
-			<div class="form-check fs-3" style="margin-left: 15px;"><input class="form-check-input" type="radio" data-bss-hover-animate="tada" name="play_game" id="vsAIChoice" onclick="updateImage('1vAI.png', 'play against an AI opponent')"><label class="form-check-label" for="formCheck-1">1 vs AI&nbsp;</label></div>
-			<div class="form-check fs-3" style="margin-left: 15px;"><input class="form-check-input" type="radio" data-bss-hover-animate="tada" name="play_game" id="tournamentChoice" onclick="updateImage('tournament.png', 'play against multiple oponents')"><label class="form-check-label" for="formCheck-3">tournament</label></div>
-		</div><button class="btn btn-light fs-3 border-black" type="button" style="padding: 20px;margin-top: 40px;" onclick="manageMode()">begin</button>
+			<div class="form-check fs-3"><input class="form-check-input" type="radio" data-bss-hover-animate="tada" id="vsPlayerChoice" name="play_game" checked="" onclick="updateImage('1v1.png', 'p1v1')"><label class="form-check-label" for="formCheck-2">1 vs 1&nbsp;</label></div>
+			<div class="form-check fs-3" style="margin-left: 15px;"><input class="form-check-input" type="radio" data-bss-hover-animate="tada" name="play_game" id="vsAIChoice" onclick="updateImage('1vAI.png', 'p1vAI')"><label class="form-check-label" for="formCheck-1">1 vs AI&nbsp;</label></div>
+			<div class="form-check fs-3" style="margin-left: 15px;"><input class="form-check-input" type="radio" data-bss-hover-animate="tada" name="play_game" id="tournamentChoice" onclick="updateImage('tournament.png', 'pTour')"><label class="form-check-label translate" for="formCheck-3" data-en="tournament" data-cs="turnaj" data-de="Turnier"></label></div>
+		</div><button class="btn btn-light fs-3 border-black translate" type="button" style="padding: 20px;margin-top: 40px;" onclick="manageMode()" data-en="begin" data-cs="začít" data-de="beginnen"></button>
 	</div>
 	<div class="d-flex d-md-flex d-xl-flex flex-column justify-content-md-center align-items-md-center justify-content-xl-center align-items-xl-center" style="width: 50%;height: 100%;" id="image-container"><img style="max-width: 100%;max-height: 100%;width: 50%;" src="assets/img/1v1.png">
-		<p class="fs-4" style="margin-top: 5%;">play against another player</p>
+		<p class="fs-4 translate" style="margin-top: 5%;" data-en="play against another player" data-cs="hraj proti jinému hráči" data-de="gegen einen anderen Spieler spielen"></p>
 	</div>
 </div>

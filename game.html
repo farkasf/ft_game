@@ -1,21 +1,21 @@
 <div class="d-flex w-100 h-100 justify-content-between align-items-center">
 	<div style="width: 280px;">
-		<h1 class="text-center" id="player1name">player 1</h1>
+		<h1 class="text-center" id="player1name"></h1>
 		<p class="fs-2 text-center" id="player1Score">0</p>
 	</div>
 	<div id="game-container" class="d-flex justify-content-center align-items-center">
 		<div onclick="showGame()">
 			<div class="p-5 d-flex flex-column justify-content-center align-items-center bg-white rounded">
-				<span class="text-black fs-1 fw-bold">Play</span>
-				<p class="text-black fs-5 text-center" id="controls">Player 1: WASD<br>Player 2: arrows</p>
+				<span class="text-black fs-1 fw-bold translate" data-en="play" data-cs="hrát" data-de="spielen"></span>
+				<p class="text-black fs-5 text-center" id="controls"></p>
 			</div>
 			<div class="m-3">
-				<p class="text-white fs-5 text-center">Press Enter ↵ to quit</p>
+				<p id="quitGame" class="text-white fs-5 text-center"></p>
 			</div>
 		</div>
 	</div>
 	<div style="width: 280px;">
-		<h1 class="text-center" id="player2name">player 2</h1>
+		<h1 class="text-center" id="player2name"></h1>
 		<p class="fs-2 text-center" id="player2Score">0</p>
 	</div>
 </div>
