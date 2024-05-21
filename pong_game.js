@@ -64,38 +64,22 @@ function startGameFunction(window, document, THREE) {
 
   function movePaddleTwo() {
     if (gameMode === 1) {
-      /* vs AI: Paddle2 tries to align itself with ball position on x axis
-            and maintainss a 100 unit offset. If paddle2 is more than 100 units
-            to the right of the ball, it moves left by 6 units or by difference 
-            between its position and the ball - whichever is smaller.
-            Same applies for the movement to the right. */
-      let ballPos = ball.position,
-        cpuPos = paddle2.position;
-
-      if (cpuPos.x - 100 > ballPos.x) {
-        cpuPos.x -= Math.min(cpuPos.x - ballPos.x, 6);
-      } else if (cpuPos.x - 100 < ballPos.x) {
-        cpuPos.x += Math.min(ballPos.x - cpuPos.x, 6);
-      }
+        moveAI(paddle2, ball, keyState, paddleSpeed, PADDLE_WIDTH, FIELD_WIDTH);
     } else {
-      /* Player vs player: move up or down by paddleSpeed units */
-      switch (true) {
-        case keyState.ArrowUp:
-          paddle2.position.x -= paddleSpeed;
-          break;
-        case keyState.ArrowDown:
-          paddle2.position.x += paddleSpeed;
-          break;
-      }
-      // Constrain the paddles to stay within field
-      const halfPaddleWidth = PADDLE_WIDTH / 2;
-      const halfFieldWidth = FIELD_WIDTH / 2;
-      paddle2.position.x = Math.min(
-        halfFieldWidth - halfPaddleWidth,
-        Math.max(-halfFieldWidth + halfPaddleWidth, paddle2.position.x)
-      );
+        switch (true) {
+            case keyState.ArrowUp:
+                paddle2.position.x -= paddleSpeed;
+                break;
+            case keyState.ArrowDown:
+                paddle2.position.x += paddleSpeed;
+                break;
+        }
+
+        const halfPaddleWidth = PADDLE_WIDTH / 2;
+        const halfFieldWidth = FIELD_WIDTH / 2;
+        paddle2.position.x = Math.min(halfFieldWidth - halfPaddleWidth, Math.max(-halfFieldWidth + halfPaddleWidth, paddle2.position.x));
     }
-  }
+}
 
   function moveBall() {
     if (!ball.$velocity) {
