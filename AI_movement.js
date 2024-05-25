@@ -38,10 +38,11 @@ function moveAI(paddle2, ball, keyState, paddleSpeed, PADDLE_WIDTH, FIELD_WIDTH)
     let cpuPos = paddle2.position;
     const movementLimit = PADDLE_WIDTH / 4;
     // Gradually move the paddle towards the predicted position
-    const slowerMovement = 0.05;
+    const smootherMovement = 0.05;
     let delta = predictedBallPos.x - cpuPos.x;
     if (Math.abs(delta) > movementLimit) {
-        cpuPos.x += delta * slowerMovement;
+        AI_simulatedKeypress(keyState, delta); // trigger keypress
+        cpuPos.x += delta * smootherMovement;
     }
 
     // Ensure the paddle stays within the field
@@ -51,9 +52,18 @@ function moveAI(paddle2, ball, keyState, paddleSpeed, PADDLE_WIDTH, FIELD_WIDTH)
 }
 
 // Simulated key press (100 milliseconds at a time)
-function pressKey(key, keyState) {
-    keyState[key] = true;
+function AI_simulatedKeypress(keyState, delta) {
+    keyState.ArrowUp = false;
+    keyState.ArrowDown = false;
+
+    // Simulate key presses based on the target position
+    if (delta > 0) {
+        keyState.ArrowDown = true;
+    } else if (delta < 0) {
+        keyState.ArrowUp = true;
+    }
     setTimeout(() => {
-        keyState[key] = false;
+        keyState.ArrowUp = false;
+        keyState.ArrowDown = false;
     }, 100);
 }
