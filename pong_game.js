@@ -17,7 +17,6 @@ function startGameFunction(window, document, THREE) {
   let WIDTH = window.innerWidth - 0.05 * window.innerWidth,
     HEIGHT = window.innerHeight - 0.1 * window.innerHeight,
     // define the set-up for 3D camera
-    BALL_MAX_SPEED = 30,
     BALL_RADIUS = 20,
     PADDLE_WIDTH = 200,
     PADDLE_HEIGHT = 30,
@@ -46,7 +45,6 @@ function startGameFunction(window, document, THREE) {
 
   if (gameMode === 2 || gameMode === 3) {
     ballSpeed = 30;
-    BALL_MAX_SPEED = 40;
     BALL_RADIUS = 40;
     PADDLE_WIDTH = 400;
     PADDLE_HEIGHT = 60;
@@ -81,37 +79,58 @@ function startGameFunction(window, document, THREE) {
     }
 }
 
-  function moveBall() {
-    if (!ball.$velocity) {
+function moveBall() {
+  if (!ball.$velocity) {
       startBall();
-    }
-
-    if (ball.$stopped) {
-      return;
-    }
-
-    updateBallPosition();
-
-    if (hitsSideField()) {
-      ball.$velocity.x *= -1;
-    }
-
-    if (hitsPaddle1()) {
-      hitBallBack(paddle1);
-    }
-
-    if (hitsPaddle2()) {
-      hitBallBack(paddle2);
-    }
-
-    if (missesPaddle1()) {
-      addScore("player2");
-    }
-
-    if (missesPaddle2()) {
-      addScore("player1");
-    }
   }
+
+  if (ball.$stopped) {
+      return;
+  }
+
+  updateBallPosition();
+
+  if (hitsSideField()) {
+      ball.$velocity.x *= -1;
+  }
+
+  if (hitsPaddle1()) {
+      hitBallBack(paddle1);
+  }
+
+  if (hitsPaddle2()) {
+      hitBallBack(paddle2);
+  }
+
+  if (missesPaddle1()) {
+      addScore("player2");
+  }
+
+  if (missesPaddle2()) {
+      addScore("player1");
+  }
+
+  checkStuckBall();
+}
+
+function checkStuckBall() {
+  const tolerance = 1;
+  const halfFieldWidth = FIELD_WIDTH / 2;
+  const isStuckAtSide = ball.position.x + BALL_RADIUS > halfFieldWidth - tolerance 
+  || ball.position.x - BALL_RADIUS < -halfFieldWidth + tolerance;
+  const isStuckAtPaddle1 = ball.position.z + BALL_RADIUS >= paddle1.position.z 
+  && Math.abs(ball.position.x - paddle1.position.x) > PADDLE_WIDTH / 2;
+  const isStuckAtPaddle2 = ball.position.z - BALL_RADIUS <= paddle2.position.z 
+  && Math.abs(ball.position.x - paddle2.position.x) > PADDLE_WIDTH / 2;
+
+  if (isStuckAtSide && (isStuckAtPaddle1 || isStuckAtPaddle2)) {
+      if (isStuckAtPaddle1) {
+          addScore("player2");
+      } else if (isStuckAtPaddle2) {
+          addScore("player1");
+      }
+  }
+}
 
   // Check if the ball has passed the depth position of the paddle
   function missesPaddle1() {
@@ -133,10 +152,11 @@ function startGameFunction(window, document, THREE) {
   // if left or right edge of the ball has touched the side, return true or false
   function hitsSideField() {
     let ballX = ball.position.x,
-      halfFieldWidth = FIELD_WIDTH / 2;
+        halfFieldWidth = FIELD_WIDTH / 2;
+    let tolerance = 1;
     return (
-      ballX - BALL_RADIUS < -halfFieldWidth ||
-      ballX + BALL_RADIUS > halfFieldWidth
+        ballX - BALL_RADIUS < -halfFieldWidth + tolerance ||
+        ballX + BALL_RADIUS > halfFieldWidth - tolerance
     );
   }
 
@@ -144,12 +164,12 @@ function startGameFunction(window, document, THREE) {
   // change the ball forward direction
   function hitBallBack(paddle) {
     const relativeHitPosition =
-      (ball.position.x - paddle.position.x) / (PADDLE_WIDTH / 2);
+        (ball.position.x - paddle.position.x) / (PADDLE_WIDTH / 2);
     const newHorizontalVelocity =
-      ball.$velocity.x + relativeHitPosition * BALL_MAX_SPEED;
+        ball.$velocity.x + relativeHitPosition * ballSpeed;
     ball.$velocity.x = Math.max(
-      -BALL_MAX_SPEED,
-      Math.min(BALL_MAX_SPEED, newHorizontalVelocity)
+        -ballSpeed / 2,
+        Math.min(ballSpeed / 2, newHorizontalVelocity)
     );
     ball.$velocity.z *= -1;
   }
@@ -373,7 +393,6 @@ function startGameFunction(window, document, THREE) {
     );
     const edgesMaterial = new THREE.MeshBasicMaterial({
       color: 0x22162b,
-      emissive: 0xffffff,
     });
     const edges = new THREE.Mesh(edgesGeometry, edgesMaterial);
     edges.position.set(0, -57, 0);
@@ -551,3 +570,4 @@ function showGame() {
   // Start the game
   startGameFunction(window, window.document, window.THREE);
 }
+
